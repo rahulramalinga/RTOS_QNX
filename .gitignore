@@ -1,0 +1,5 @@
+vm1/local/vmware_files/
+vm1/output/disk-vmware
+*.vmem
+*.vmss
+*.vmdk
