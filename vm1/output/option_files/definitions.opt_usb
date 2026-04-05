@@ -1,0 +1,1 @@
+#define __IO_USB_OTG_OPTIONS__ -d hcd-uhci -d hcd-ehci -d hcd-xhci

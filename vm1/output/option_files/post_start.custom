@@ -1,0 +1,28 @@
+# local/snippets/post_start.custom
+echo "[BOOT] Configuring Network for vmx0..."
+ifconfig vmx0 192.168.136.130 netmask 255.255.255.0 up
+sleep 2
+
+echo "[BOOT] Starting qconn for Momentics IDE..."
+qconn &
+sleep 1
+
+echo "[BOOT] Starting Event Horizon Services..."
+/usr/bin/engine_proc &
+sleep 1
+/usr/bin/reactor_proc &
+
+# Check if screen service is running
+echo "[BOOT] Checking Graphics Subsystem..."
+pidin -P screen | grep screen
+if [ $? -ne 0 ]; then
+    echo "[BOOT] WARNING: screen service not found! Restarting screen..."
+    screen &
+    sleep 2
+fi
+
+echo "[BOOT] Launching Raylib UI..."
+export LD_LIBRARY_PATH=/usr/lib:/lib
+export SDL_VIDEODRIVER=qnx
+export SDL_RENDER_DRIVER=opengles2
+/usr/bin/ui_raylib &

@@ -1,0 +1,14 @@
+# Disk DescriptorFile
+version=1
+encoding="UTF-8"
+CID=37b4dac8
+parentCID=ffffffff
+createType="monolithicFlat"
+
+# Extent description
+RW 345417 FLAT "disk-vmware" 0
+
+# The Disk Data Base 
+#DDB
+
+ddb.longContentID = "a5c478dc81d20f31323b9b1137b4dac8"

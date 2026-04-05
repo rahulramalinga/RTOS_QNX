@@ -1,0 +1,8 @@
+#define __SYS_SIZE__ 40960
+#define __SYS_INODES__ 1000
+#define __DATA_SIZE__ 122880
+#define __DATA_INODES__ 3000
+#define __TOOL_DIR__ /cygdrive/C//Users/yoy91/qnx800/host/win64/x86_64/../../common/mkqnximage
+#define __EXTRA_PROC_OPTIONS__ 
+#define __EXTRA_STARTUP_OPTIONS__ 
+#define __MKFS_PATH__ ${MKFS_PATH}

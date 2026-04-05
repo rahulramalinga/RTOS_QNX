@@ -1,0 +1,21 @@
+# Depending on timing, devb can try to mount things either before or after it
+# does a type transition. Ensure that the post transition type has the needed
+# privileges in case it doesn't get them during policy generation.
+type devb_t__run;
+
+allow devb_t__run self:ability {
+    nonroot
+    pathspace
+    prot_exec
+    map_fixed
+    rsrcdbmgr
+};
+
+allow_attach devb_t__run {
+    /boot
+    /data
+    /system 
+#if defined(OPT_QTD_yes)
+    /dev/hd0t185-fs
+#endif
+};

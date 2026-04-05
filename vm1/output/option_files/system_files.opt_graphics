@@ -1,0 +1,87 @@
+
+
+######################################################
+### Common Graphics Files
+######################################################
+/etc/system/config/img.conf=etc/system/config/img.conf
+
+######################################################
+### Fonts
+######################################################
+[perms=0444] fonts=usr/share/fonts
+[perms=0444] etc/fontconfig/fonts.conf=/cygdrive/C//Users/yoy91/qnx800/host/win64/x86_64/../../common/mkqnximage/inputs/fonts.conf
+bin/fc-cache=bin/fc-cache
+
+######################################################
+### Graphics - Screen
+######################################################
+/bin/screen=sbin/screen
+/bin/screencmd=bin/screencmd
+/bin/screeninfo=bin/screeninfo
+/bin/hidview=sbin/hidview
+
+/bin/gles2-gears=usr/bin/gles2-gears
+/bin/sw-vsync=usr/bin/sw-vsync
+
+########################################
+## libraries
+########################################
+/lib/libgestures.so.1=lib/libgestures.so.1
+/lib/libscrmem.so.1=lib/libscrmem.so.1
+/lib/libmemobj.so.1=lib/libmemobj.so.1
+/lib/libinputevents.so.1=lib/libinputevents.so.1
+/lib/libkalman.so.1=lib/libkalman.so.1
+/lib/libimg.so.1=lib/libimg.so.1
+/lib/libdrm.so.1=usr/lib/libdrm.so.1
+
+########################################
+## DLLs
+########################################
+/lib/dll/screen-debug.so=lib/dll/screen-debug.so
+/lib/dll/screen-gles2blt.so=lib/dll/screen-gles2blt.so
+/lib/dll/screen-sw.so=lib/dll/screen-sw.so
+/lib/dll/screen-stdbuf.so=lib/dll/screen-stdbuf.so
+
+#########################################
+## more libraries
+#########################################
+/lib/libGLESv2.so.1=usr/lib/libGLESv2.so.1
+/lib/libEGL.so.1=usr/lib/libEGL.so.1
+/lib/libscreen.so.1=usr/lib/libscreen.so.1
+/lib/libswblit.so.1=usr/lib/libswblit.so.1
+[type=link] /lib/libswblit.so=libswblit.so.1
+/lib/libWFD.so.1=usr/lib/libWFD.so.1
+/lib/__LIBFREETYPE__=usr/lib/__LIBFREETYPE__
+/lib/libfontconfig.so.1=usr/lib/libfontconfig.so.1
+/lib/__LIBPNG16__=usr/lib/__LIBPNG16__
+
+#############################################
+### Image Loading
+#############################################
+/lib/dll/img_codec_bmp.so=lib/dll/img_codec_bmp.so
+/lib/dll/img_codec_gif.so=lib/dll/img_codec_gif.so
+/lib/dll/img_codec_jpg.so=lib/dll/img_codec_jpg.so
+/lib/dll/img_codec_png.so=lib/dll/img_codec_png.so
+/lib/dll/img_codec_sgi.so=lib/dll/img_codec_sgi.so
+/lib/dll/img_codec_tga.so=lib/dll/img_codec_tga.so
+/lib/dll/img_codec_tif.so=lib/dll/img_codec_tif.so
+
+
+#############################################
+### Input
+#############################################
+/lib/libhiddi.so.1=lib/libhiddi.so.1
+[type=link] /lib/libhiddi.so=libhiddi.so.1
+/lib/dll/devh-ps2ser.so=lib/dll/devh-ps2ser.so
+/lib/dll/devh-ps2ser-vm.so=lib/dll/devh-ps2ser-vm.so
+/lib/libvmmouse.so.1=lib/libvmmouse.so.1
+/bin/io-hid=sbin/io-hid
+/graphics/keyboard/en_US_101.kbd=usr/share/keyboard/en_US_101.kbd
+
+#if defined(__GRAPHICS_VMWGFX_DRM__)
+#include "inputs/system_files_vmwgfx-drm"
+#endif
+#if defined(__GRAPHICS_VIRTIO_DRM__)
+#include "inputs/system_files_virtio-drm"
+#endif
+

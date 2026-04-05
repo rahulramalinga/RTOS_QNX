@@ -1,0 +1,143 @@
+[num_inodes=*3000]
+[num_sectors=*122880]
+[search=${MKFS_PATH}]
+[uid=0 gid=0 dperms=755 perms=644]
+
+[prefix=]
+
+[+dupignore]
+[+optional]
+
+
+
+#############################################
+### Directories
+#############################################
+
+[uid=0 gid=0 dperms=755 type=dir] /
+[uid=0 gid=0 dperms=755 type=dir] var
+[uid=0 gid=0 dperms=755 type=dir] var/etc
+[uid=22 gid=22 type=dir dperms=700] var/random
+[uid=30 gid=30 type=dir dperms=700] var/dumper
+[uid=0 gid=0 dperms=a=rwxt type=dir] var/tmp
+[uid=0 gid=0] var/tmp/keep_files = {
+Delete to have /tmp cleaned on boot
+}
+[uid=38 gid=38 type=dir dperms=755] var/dhcpcd
+[uid=38 gid=38 type=dir dperms=755] var/run/dhcpcd
+[type=link] var/db=dhcpcd
+[type=link] var/etc/resolv.conf /data/var/dhcpcd/resolv.conf
+
+[perms=444] var/etc/build.date = output/build/build.date
+
+#############################################
+### Users
+#############################################
+
+[uid=0 gid=0 dperms=755 type=dir] home
+
+[gid=0 uid=0 perms=644] var/etc/passwd = output/build/passwd
+[gid=0 uid=0 perms=600 acl=u:0:r] var/etc/shadow = output/build/shadow
+
+[gid=0 uid=0 perms=644] var/etc/group = output/build/group
+
+[type=dir gid=0 uid=0 perms=755] var/etc/default
+
+[gid=0 uid=0 perms=644] var/etc/default/passwd = {
+BASEDIR=/data/home
+UIDRANGE=1000
+GIDRANGE=1000
+}
+
+#############################################
+### sshd
+#############################################
+[gid=0 uid=0 dperms=755 type=dir] var/chroot/sshd
+[gid=0 uid=0 dperms=700 type=dir] var/ssh
+
+# Restrict permissions in home directories
+[uid=0 gid=0 perms=600 dperms=700]
+[type=dir acl=u:0:x] home/root
+[type=dir acl=u:0:x] home/root/.ssh
+home/root/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+
+#############################################
+### Miscellaneous
+#############################################
+
+[type=dir uid=0 gid=0 dperms=755] var/etc/settings
+[uid=0 gid=0 perms=644] var/etc/settings/network = {
+HOSTNAME=vm1
+IP_ADDR=dhcp
+TIME_SERVERS=pool.ntp.org
+}
+
+#############################################
+### Customization
+#############################################
+
+# local/snippets/data_files.custom
+# Placeholder for local list of files to add to data partition
+[type=dir perms=0755] var/fontconfig
+[gid=0 uid=0 perms=400] var/ssh/ssh_host_rsa_key=local/misc_files/ssh_host_rsa_key
+[gid=0 uid=0 perms=400] var/ssh/ssh_host_ed25519_key=local/misc_files/ssh_host_ed25519_key
+[uid=1000 gid=1000]
+[type=dir acl=u:0:x,u:30:x] home/qnxuser
+[type=dir acl=u:30:rwx] home/qnxuser/cores
+[type=dir acl=u:0:x] home/qnxuser/.ssh
+home/qnxuser/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1001 gid=1001]
+[type=dir acl=u:0:x,u:30:x] home/user1
+[type=dir acl=u:30:rwx] home/user1/cores
+[type=dir acl=u:0:x] home/user1/.ssh
+home/user1/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1002 gid=1002]
+[type=dir acl=u:0:x,u:30:x] home/user2
+[type=dir acl=u:30:rwx] home/user2/cores
+[type=dir acl=u:0:x] home/user2/.ssh
+home/user2/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1003 gid=1003]
+[type=dir acl=u:0:x,u:30:x] home/user3
+[type=dir acl=u:30:rwx] home/user3/cores
+[type=dir acl=u:0:x] home/user3/.ssh
+home/user3/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1004 gid=1004]
+[type=dir acl=u:0:x,u:30:x] home/user4
+[type=dir acl=u:30:rwx] home/user4/cores
+[type=dir acl=u:0:x] home/user4/.ssh
+home/user4/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1005 gid=1005]
+[type=dir acl=u:0:x,u:30:x] home/user5
+[type=dir acl=u:30:rwx] home/user5/cores
+[type=dir acl=u:0:x] home/user5/.ssh
+home/user5/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=1006 gid=1006]
+[type=dir acl=u:0:x,u:30:x] home/user6
+[type=dir acl=u:30:rwx] home/user6/cores
+[type=dir acl=u:0:x] home/user6/.ssh
+home/user6/.ssh/environment = {
+TERM=qansi
+PATH=/proc/boot:/system/bin
+}
+[uid=0 gid=0 dperms=755 perms=644]

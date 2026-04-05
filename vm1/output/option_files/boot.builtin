@@ -1,0 +1,9 @@
+[image=__BOOT_ADDR__]
+[virtual=__VIRTUAL__ __IFS_COMPRESS__] boot = {
+    __STARTUP__ __STARTUP_OPTS__ __EXTRA_STARTUP_OPTIONS__
+    # Setting PATH and LD_LIBRARY_PATH here allows them to be set both for
+    # procnto as well as programs run from the IFS startup script.
+    PATH=__PROC_PATH__
+    LD_LIBRARY_PATH=__PROC_LIB__
+    [+keeplinked uid=0 gid=0 perms=0700 __MODULE_APS__] CONFIG_PATH=__IFS_PATH__:/system/etc __PROCNTO__ __PROCNTO_OPTIONS__ __EXTRA_PROC_OPTIONS__
+}

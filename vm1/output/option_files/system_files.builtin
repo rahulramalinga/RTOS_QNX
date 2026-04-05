@@ -1,0 +1,9 @@
+lib/__LIBSSL__=usr/lib/__LIBSSL__
+lib/__LIBCURL__=usr/lib/__LIBCURL__
+lib/__LIBCARES__=usr/lib/__LIBCARES__
+/bin/setkey=sbin/setkey
+lib/__LIBLZMA__=usr/lib/__LIBLZMA__
+[perms=555] bin/cleanup_tmp=__TOOL_DIR__/inputs/cleanup_tmp
+#if defined(__WIFIDEVICE__)
+bin/wpa_supplicant-2.11=usr/sbin/wpa_supplicant-2.11
+#endif

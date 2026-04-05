@@ -1,0 +1,30 @@
+#define __SSHD_JAIL_ID__  15
+#define __DEVB_ID__       20
+#define __SLOGGER_ID__    21
+#define __RANDOM_ID__     22
+#define __PIPE_ID__       24
+#define __DEVC_ID__       25
+#define __FS_NFS3_ID__    26
+#define __QCONN_ID__      29
+#define __DUMPER_ID__     30
+#define __INETD_ID__      31
+#define __IO_SOCK_ID__    33
+#define __PCI_SERVER_ID__ 34
+#define __SCREEN_ID__     36
+#define __DEVC_PTY_ID__   37
+#define __DHCPCD_ID__     38
+#define __SLM_ID__        39
+#define __TABRM_ID__      40
+#define __DEVCRYPTO_ID__  41
+#define __TABRMSHARE_ID__ 42
+#define __MQUEUE_ID__     43
+#define __IO_USB_ID__     44
+#define __IO_HID_ID__     46
+#if ! defined(OPT_SECPOL_no)
+#define __SSHD_ID__       47
+#else
+#define __SSHD_ID__       0
+#endif
+#define __FSEVMGR_ID__    48
+#define __MDNSD_ID__      49
+#define __DNSSD_ID__      50

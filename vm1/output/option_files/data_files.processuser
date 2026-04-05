@@ -1,0 +1,57 @@
+[uid=1000 gid=1000]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/qnxuser
+[type=dir acl=u:__DUMPER_ID__:rwx] home/qnxuser/cores
+[type=dir acl=u:__SSHD_ID__:x] home/qnxuser/.ssh
+home/qnxuser/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1001 gid=1001]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user1
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user1/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user1/.ssh
+home/user1/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1002 gid=1002]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user2
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user2/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user2/.ssh
+home/user2/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1003 gid=1003]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user3
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user3/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user3/.ssh
+home/user3/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1004 gid=1004]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user4
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user4/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user4/.ssh
+home/user4/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1005 gid=1005]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user5
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user5/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user5/.ssh
+home/user5/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+[uid=1006 gid=1006]
+[type=dir acl=u:__SSHD_ID__:x,u:__DUMPER_ID__:x] home/user6
+[type=dir acl=u:__DUMPER_ID__:rwx] home/user6/cores
+[type=dir acl=u:__SSHD_ID__:x] home/user6/.ssh
+home/user6/.ssh/environment = {
+TERM=qansi
+PATH=__IFS_PATH__:/system/bin
+}
+__DEFAULT_PERMISSIONS__

@@ -1,0 +1,5 @@
+#############################################
+### QTD
+#############################################
+qtd_public_key.pem=local/misc_files/qtd_public_key.pem
+fs-qtd.so=lib/dll/fs-qtd.so

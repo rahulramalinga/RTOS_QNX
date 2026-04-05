@@ -1,0 +1,5 @@
+[search=${MKFS_PATH}]
+[num_sectors=*80]
+[+dupignore]
+/.boot/qnx_sdp.ifs=output/ifs.bin
+[+optional]

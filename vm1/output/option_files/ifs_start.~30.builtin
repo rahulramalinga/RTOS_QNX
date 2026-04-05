@@ -1,0 +1,6 @@
+    #~30.builtin
+#if defined(OPT_SLM_yes)
+    START_P(slm_t) slm -Vvv __IFS_PATH__/slm.cfg &
+#else
+    __IFS_PATH__/startup.sh
+#endif

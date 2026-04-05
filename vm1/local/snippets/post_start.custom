@@ -1,0 +1,36 @@
+# local/snippets/post_start.custom
+# Event Horizon: Reactor Crisis - VM Boot Startup Script
+#
+# IMPORTANT: The ifconfig line sets the static IP for SSH access.
+# Do NOT remove it or you'll lose SSH connectivity to the VM.
+
+# === Network Configuration (critical for SSH) ===
+echo "[BOOT] Configuring Network for vmx0..."
+ifconfig vmx0 192.168.136.130 netmask 255.255.255.0 up
+sleep 2
+
+# === Start qconn for Momentics IDE debugging ===
+echo "[BOOT] Starting qconn for Momentics IDE..."
+qconn &
+sleep 1
+
+# === Load USB HID device handler for gamepad support ===
+echo "[BOOT] Loading USB HID gamepad handler..."
+io-hid -dusb &
+sleep 1
+
+# === Start Event Horizon Game Services ===
+echo "[BOOT] Starting Event Horizon Services..."
+/usr/bin/engine_proc &
+sleep 1
+/usr/bin/reactor_proc &
+sleep 1
+
+# === Wait for screen service ===
+echo "[BOOT] Waiting for Graphics..."
+waitfor /dev/screen 10
+
+# === Launch the game ===
+echo "[BOOT] Launching Event Horizon: Reactor Crisis..."
+export LD_LIBRARY_PATH=/proc/boot:/system/lib:/system/lib/dll:/system/graphics/driver:/usr/lib
+/usr/bin/game_main &

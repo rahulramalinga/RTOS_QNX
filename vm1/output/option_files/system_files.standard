@@ -1,0 +1,18 @@
+[perms=555] etc/startup/pinger.sh={
+#!/bin/sh
+# Script to ping all interfaces of our host as a means of getting our own address into the arp cache
+if ! ifconfig | grep 'inet .*broadcast' | grep -v 0.0.0.0 >/dev/null; then
+	exit
+fi
+if [ "$1" = delay ]; then
+	# It can take several seconds after start-up before io-sock is capable of pinging.
+	sleep 6
+fi
+# Also use an address by replacing the last octet of our address with 1.
+guessed_addr=`ifconfig | grep broad | sed -r 's/.*broadcast ([0-9]+\\.[0-9]+\\.[0-9]+)\\..*/\\1.1/'`
+addr_list=192.168.73.1:192.168.136.1:192.168.0.11:$guessed_addr
+IFS=:
+for ip in $addr_list; do
+	ping -c 1 -t 1 $ip >/dev/null 2>&1 &
+done
+}

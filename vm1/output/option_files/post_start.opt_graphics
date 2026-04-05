@@ -1,0 +1,7 @@
+
+echo "---> Starting graphics"
+if [ ! -e /data/var/fontconfig/CACHEDIR.TAG ]; then
+   FONTCONFIG_FILE=/system/etc/fontconfig/fonts.conf fc-cache &
+fi
+START_P(screent_t) screen -c /system/graphics/driver/graphics.conf DROPROOT_NP(__SCREEN_ID__)
+waitfor /dev/screen

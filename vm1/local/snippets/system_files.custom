@@ -1,0 +1,14 @@
+# local/snippets/system_files.custom
+# Event Horizon: Reactor Crisis - Game binaries and dependencies
+# These files are baked into the QNX VM system partition at build time.
+
+# --- Game Binaries ---
+/usr/bin/game_main = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/game_main
+/usr/bin/engine_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/engine_proc
+/usr/bin/reactor_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/reactor_proc
+
+# --- USB HID Device Handler (for Xbox/DualShock gamepad over USB) ---
+# devh-usb.so enables io-hid to detect USB HID devices like gamepads.
+# The VM already includes io-hid + devh-ps2ser-vm for keyboard/mouse,
+# but devh-usb.so is needed for USB gamepads specifically.
+/lib/dll/devh-usb.so = lib/dll/devh-usb.so

@@ -1,0 +1,23 @@
+function generate_file()
+{
+    path="$1"
+    output="$2"
+    if [ -z "${output}" ]; then
+        file="${1##*/}"
+        output="output/build/${file}"
+    fi
+    echo Generating "${output}"
+    preprocess "${path}" "${output}"
+}
+
+generate_file ${TOOL_DIR}/inputs/mount_fs.sh
+generate_file ${TOOL_DIR}/inputs/expandfs.sh
+generate_file ${TOOL_DIR}/inputs/post_startup.sh
+generate_file ${TOOL_DIR}/inputs/start_net.sh
+generate_file ${TOOL_DIR}/inputs/startup.sh
+generate_file output/option_files/passwd
+generate_file output/option_files/group
+generate_file ${TOOL_DIR}/inputs/shadow
+generate_file ${TOOL_DIR}/inputs/ifs.build
+generate_file ${TOOL_DIR}/inputs/system.build
+generate_file ${TOOL_DIR}/inputs/data.build

@@ -1,0 +1,3 @@
+#if defined(__WIFIDEVICE__)
+[uid=0 gid=0 perms=640] var/etc/settings/wpa_supplicant.conf=output/build/wpa_supplicant.conf
+#endif

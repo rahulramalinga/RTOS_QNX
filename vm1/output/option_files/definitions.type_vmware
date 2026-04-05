@@ -1,0 +1,34 @@
+#define __DEVB_NAME__ devb-eide
+#if defined (OPT_GRAPHICS_yes)
+#define __DEVC_NAME__ devc-con-hid
+#else
+#define __DEVC_NAME__ devc-con
+#endif
+#define __DEVC_PATH__ /dev/con1
+#define __DEVC_PATH2__ /dev/con2
+#define __DEVC_PATH3__ /dev/con3
+#define __DEVC_PATH4__ /dev/con4
+
+#if defined(IMAGE_TYPE_uefi)
+#define __VIRTUAL__ x86_64,uefi
+#else
+#define __VIRTUAL__ x86_64,bios
+#endif
+#define __LD_QNX__ ldqnx-64.so.2
+#define __STARTUP__ startup-x86
+
+#define __IOPKT_OPTS__
+#define __BOOT_ADDR__ 20m
+#define __DEVB_OPTS__
+#define __DEVC_OPTS__
+#define __HAS_PCI__
+#define __PCI_HW_MODULE__ pci_hw-Intel_x86.so
+
+#define __NETDRIVER__ -d vmx
+#define __NETDEVICE__ vmx0
+
+#define __PCI_HW_CONFIG_FILE__
+
+#define __GRAPHICS_VMWGFX_DRM__
+
+#define __IFS_COMPRESS__ +compress

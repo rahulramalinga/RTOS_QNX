@@ -1,0 +1,3 @@
+    #50.builtin
+    setconf TIMEZONE __OPT_TZ__
+    mount -uo noexec /dev/shmem

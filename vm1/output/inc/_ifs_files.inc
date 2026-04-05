@@ -1,0 +1,57 @@
+@lib/__LIBC__
+@usr/lib/ldqnx-64.so.2
+@lib/libgcc_s.so.1
+@lib/__LIBM__
+@lib/__LIBCAM__
+@lib/dll/io-blk.so
+@lib/dll/cam-disk.so
+@lib/dll/fs-qnx6.so
+@lib/dll/fs-dos.so
+@lib/__LIBSLOG2__
+@[type=link] libslog2.so=__LIBSLOG2__
+@usr/lib/__LIBCRYPTO__
+@lib/__LIBSOCKET__
+@[type=link] libsocket.so=__LIBSOCKET__
+@usr/lib/__LIBZ__
+@lib/__LIBSLOG2SHIM__
+@lib/__LIBSECPOL__
+@lib/__LIBPCI__
+@lib/__LIBJSON__
+@lib/__LIBSLOG2PARSE__
+@lib/__LIBJAIL__
+@lib/__LIBFSNOTIFY__
+@
+#if defined(OPT_SANITIZERS_yes)
+@lib/libubsan.so.1
+@lib/libstdc++.so.6
+#endif
+@
+@usr/lib/__LIBQCRYPTO__
+@lib/dll/qcrypto-openssl-3.so
+@lib/__LIBQH__
+@lib/__LIBREGEX__
+#if defined(OPT_CERTICOM_yes)
+@lib/dll/qcrypto-certicom.so
+@lib/__LIBCERTICOM__
+@lib/__LIBSBGSE__
+#endif
+#if defined(OPT_TOMCRYPT_yes)
+@lib/dll/qcrypto-tomcrypt.so
+#endif
+@
+@[uid=0 gid=0 perms=0444] qcrypto.conf={
+#if defined(OPT_TOMCRYPT_yes)
+@tomcrypt tags=\*
+#endif
+#if defined(OPT_CERTICOM_yes)
+@certicom tags=\*
+#endif
+@openssl-3 tags=\*
+@}
+@# local/snippets/ifs_files.custom
+@# Placeholder for local list of files to add to ifs
+@#############################################
+@### QTD
+@#############################################
+@qtd_public_key.pem=local/misc_files/qtd_public_key.pem
+@fs-qtd.so=lib/dll/fs-qtd.so

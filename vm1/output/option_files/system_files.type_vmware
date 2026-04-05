@@ -1,0 +1,5 @@
+#if defined(OPT_IO_SOCK_DIAG_yes)
+lib/dll/devs-vmx-diag.so=lib/dll/devs-vmx-diag.so
+#else
+lib/dll/devs-vmx.so=lib/dll/devs-vmx.so
+#endif

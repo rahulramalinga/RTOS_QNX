@@ -1,0 +1,2 @@
+[gid=__SSHD_ID__ uid=__SSHD_ID__ perms=400] var/ssh/ssh_host_rsa_key=local/misc_files/ssh_host_rsa_key
+[gid=__SSHD_ID__ uid=__SSHD_ID__ perms=400] var/ssh/ssh_host_ed25519_key=local/misc_files/ssh_host_ed25519_key

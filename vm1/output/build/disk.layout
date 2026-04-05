@@ -1,0 +1,4 @@
+[sector_size=512 cylinders=345417 sectors_per_track=1 heads=1 start_at_cylinder=1]
+[partition=1 boot=true type=177 num_sectors=10064] "output/boot.part"
+[partition=2 boot=false type=178  num_sectors=210296] "output/system.part"
+[partition=3 boot=false type=179  num_sectors=125056] "output/data.part"

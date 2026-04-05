@@ -1,0 +1,11 @@
+LAYOUT_FILE=output/build/disk.layout
+DEST_FILE=output/disk-vmware
+BOOT_SECTORS=10064
+SYS_SECTORS=210296
+DATA_SECTORS=125056
+SYS_TYPE=178
+SYS_GUID=qnx6
+BOOT_PART="output/boot.part"
+SYS_PART="output/system.part"
+DATA_PART="output/data.part"
+VMDK_FILE=output/disk-vmware.vmdk

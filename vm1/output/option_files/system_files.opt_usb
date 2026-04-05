@@ -1,0 +1,6 @@
+bin/io-usb-otg=sbin/io-usb-otg
+lib/dll/devu-hcd-xhci.so=lib/dll/devu-hcd-xhci.so
+lib/dll/devu-hcd-ehci.so=lib/dll/devu-hcd-ehci.so
+lib/dll/devu-hcd-uhci.so=lib/dll/devu-hcd-uhci.so
+lib/__LIBUSBDI__=lib/__LIBUSBDI__
+lib/dll/fs-dos.so=lib/dll/fs-dos.so

@@ -1,0 +1,7 @@
+# local/snippets/system_files.custom using absolute host paths
+/usr/bin/engine_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/engine_proc
+/usr/bin/reactor_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/reactor_proc
+/usr/bin/ui_raylib = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/ui_raylib
+/usr/lib/libSDL2-2.0.so.0 = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/external/lib/libSDL2.so
+/usr/lib/libSDL2.so = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/external/lib/libSDL2.so
+/usr/bin/bridge_ui = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/bridge_ui

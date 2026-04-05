@@ -1,0 +1,14 @@
+# Automatically start Event Horizon services
+echo "[BOOT] Configuring Network..."
+ifconfig vmx0 192.168.136.130 netmask 255.255.255.0 up
+sleep 1
+echo "[BOOT] Starting Event Horizon Services..."
+/usr/bin/engine_proc &
+sleep 1
+/usr/bin/reactor_proc &
+sleep 1
+echo "[BOOT] Starting qconn for Momentics IDE..."
+qconn &
+sleep 1
+echo "[BOOT] Launching UI..."
+/usr/bin/bridge_ui &

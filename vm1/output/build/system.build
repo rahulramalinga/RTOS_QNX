@@ -1,0 +1,541 @@
+
+[num_inodes=*1000]
+[num_sectors=*40960]
+[search=${MKFS_PATH}]
+
+[+dupignore]
+[+optional]
+[uid=0 gid=0 dperms=755 type=dir] /
+[uid=0 gid=0 dperms=755 type=dir] /lib
+[uid=0 gid=0 dperms=755 type=dir] /lib/dll
+[uid=0 gid=0 dperms=755 type=dir] /bin
+[uid=0 gid=0 dperms=755 type=dir] /etc
+
+[perms=444] /etc/build.date = output/build/build.date
+
+[uid=0 gid=0 dperms=755 perms=644]
+
+
+# /etc =========================
+
+etc/profile = {
+export TERM=qansi
+export PATH=/proc/boot:/system/bin
+export LD_LIBRARY_PATH=/proc/boot:/system/lib:/system/lib/dll:/system/graphics/driver
+export MAGIC=/system/etc/magic
+# local/snippets/profile.custom
+# Contents are included at the end of /etc/profile
+export FONTCONFIG_FILE=/system/etc/fontconfig/fonts.conf
+}
+
+[uid=0 gid=0 dperms=755 perms=555]
+
+[perms=0555] bin/start_net.sh=output/build/start_net.sh
+
+[uid=0 gid=0 dperms=755 type=dir] /etc/startup
+/etc/startup/post_startup.sh=output/build/post_startup.sh
+
+#############################################
+### Libraries
+#############################################
+
+lib/libstdc++.so.6=lib/libstdc++.so.6
+lib/librcheck.so.1=usr/lib/librcheck.so.1
+[type=link] lib/librcheck.so=librcheck.so.1
+lib/libunwind.so.8=usr/lib/libunwind.so.8
+lib/librpc.so.2=usr/lib/librpc.so.2
+lib/libedit.so.0=usr/lib/libedit.so.0
+lib/libc++.so.2=usr/lib/libc++.so.2
+lib/libncursesw.so.1=usr/lib/libncursesw.so.1
+lib/libintl.so.1=usr/lib/libintl.so.1
+lib/libtracelog.so.1=lib/libtracelog.so.1
+lib/libexpat.so.2=usr/lib/libexpat.so.2
+lib/libpanelw.so.1=usr/lib/libpanelw.so.1
+lib/libiconv.so.1=usr/lib/libiconv.so.1
+lib/libcatalog.so.1=lib/libcatalog.so.1
+lib/libbz2.so.1=usr/lib/libbz2.so.1
+lib/libxml2.so.2=usr/lib/libxml2.so.2
+lib/libxo.so.0=usr/lib/libxo.so.0
+lib/libiperf.so.0=usr/lib/libiperf.so.0
+[dperms=755 type=dir] etc/terminfo
+[dperms=755 type=dir] etc/terminfo/q
+[perms=444] etc/terminfo/q/qansi = usr/share/terminfo/q/qansi
+
+#############################################
+### Utilities
+#############################################
+bin/shutdown=sbin/shutdown
+bin/sync=bin/sync
+bin/hogs=usr/bin/hogs
+bin/sqlite3=usr/bin/sqlite3
+bin/pdebug=usr/bin/pdebug
+bin/ifconfig=sbin/ifconfig
+bin/netstat=usr/bin/netstat
+bin/pci-tool=usr/sbin/pci-tool
+bin/tracelogger=usr/sbin/tracelogger
+bin/if_up=usr/sbin/if_up
+bin/df=bin/df
+bin/fdisk=sbin/fdisk
+bin/hostname=bin/hostname
+bin/use=usr/bin/use
+bin/mkdosfs=sbin/mkdosfs
+bin/openssl=usr/bin/openssl
+bin/chkqnx6fs=sbin/chkqnx6fs
+bin/gawk=usr/bin/gawk
+[type=link] bin/awk=gawk
+bin/getfacl=bin/getfacl
+bin/ntpdate=usr/sbin/ntpdate
+bin/arp=usr/sbin/arp
+bin/curl=usr/bin/curl
+bin/fullpath=usr/bin/fullpath
+bin/ifmcstat=usr/sbin/ifmcstat
+bin/ifwatchd=usr/sbin/ifwatchd
+bin/iperf2=usr/bin/iperf2
+bin/iperf3=usr/bin/iperf3
+bin/ndp=usr/sbin/ndp
+bin/ntp-keygen=usr/sbin/ntp-keygen
+bin/ntpq=usr/bin/ntpq
+bin/pfctl=sbin/pfctl
+bin/route=sbin/route
+bin/secpolmonitor=bin/secpolmonitor
+bin/showmount=usr/bin/showmount
+bin/sntp=bin/sntp
+bin/sockstat=usr/bin/sockstat
+bin/stty=bin/stty
+bin/tcpdump=usr/sbin/tcpdump
+bin/top=usr/bin/top
+bin/usb=sbin/usb
+bin/sysctl=sbin/sysctl
+bin/slog2info=bin/slog2info
+bin/vi=bin/vi
+bin/ldd=usr/bin/ldd
+bin/less=usr/bin/less
+bin/slay=bin/slay
+bin/bsdtar=bin/bsdtar
+bin/copy_settings.sh=C://Users/yoy91/qnx800/host/win64/x86_64/../../common/mkqnximage/inputs/copy_settings.sh
+
+#############################################
+### Toybox
+#############################################
+bin/toybox=usr/bin/toybox
+[type=hlink] bin/ascii=toybox
+[type=hlink] bin/base64=toybox
+[type=hlink] bin/basename=toybox
+[type=hlink] bin/bc=toybox
+[type=hlink] bin/bunzip2=toybox
+[type=hlink] bin/bzcat=toybox
+[type=hlink] bin/cal=toybox
+[type=hlink] bin/chgrp=toybox
+[type=hlink] bin/chown=toybox
+[type=hlink] bin/cksum=toybox
+[type=hlink] bin/clear=toybox
+[type=hlink] bin/cmp=toybox
+[type=hlink] bin/comm=toybox
+[type=hlink] bin/cp=toybox
+[type=hlink] bin/cpio=toybox
+[type=hlink] bin/crc32=toybox
+[type=hlink] bin/cut=toybox
+[type=hlink] bin/date=toybox
+[type=hlink] bin/diff=toybox
+[type=hlink] bin/dirname=toybox
+[type=hlink] bin/dos2unix=toybox
+[type=hlink] bin/du=toybox
+[type=hlink] bin/egrep=toybox
+[type=hlink] bin/env=toybox
+[type=hlink] bin/expand=toybox
+[type=hlink] bin/expr=toybox
+[type=hlink] bin/false=toybox
+[type=hlink] bin/fgrep=toybox
+[type=hlink] bin/file=toybox
+[type=hlink] bin/find=toybox
+[type=hlink] bin/fmt=toybox
+[type=hlink] bin/groups=toybox
+[type=hlink] bin/gunzip=toybox
+[type=hlink] bin/gzip=toybox
+[type=hlink] bin/hd=toybox
+[type=hlink] bin/head=toybox
+[type=hlink] bin/hexdump=toybox
+[type=hlink] bin/id=toybox
+[type=hlink] bin/install=toybox
+[type=hlink] bin/link=toybox
+[type=hlink] bin/logname=toybox
+[type=hlink] bin/md5sum=toybox
+[type=hlink] bin/mkdir=toybox
+[type=hlink] bin/mkfifo=toybox
+[type=hlink] bin/mktemp=toybox
+[type=hlink] bin/more=toybox
+[type=hlink] bin/mv=toybox
+[type=hlink] bin/nl=toybox
+[type=hlink] bin/nohup=toybox
+[type=hlink] bin/od=toybox
+[type=hlink] bin/paste=toybox
+[type=hlink] bin/patch=toybox
+[type=hlink] bin/printenv=toybox
+[type=hlink] bin/printf=toybox
+[type=hlink] bin/pwd=toybox
+[type=hlink] bin/readlink=toybox
+[type=hlink] bin/realpath=toybox
+[type=hlink] bin/rmdir=toybox
+[type=hlink] bin/sed=toybox
+[type=hlink] bin/seq=toybox
+[type=hlink] bin/sha1sum=toybox
+[type=hlink] bin/sleep=toybox
+[type=hlink] bin/sort=toybox
+[type=hlink] bin/split=toybox
+[type=hlink] bin/stat=toybox
+[type=hlink] bin/strings=toybox
+[type=hlink] bin/tail=toybox
+[type=hlink] bin/tar=toybox
+[type=hlink] bin/tee=toybox
+[type=hlink] bin/test=toybox
+[type=hlink] bin/time=toybox
+[type=hlink] bin/timeout=toybox
+[type=hlink] bin/touch=toybox
+[type=hlink] bin/tr=toybox
+[type=hlink] bin/true=toybox
+[type=hlink] bin/truncate=toybox
+[type=hlink] bin/tty=toybox
+[type=hlink] bin/uname=toybox
+[type=hlink] bin/uniq=toybox
+[type=hlink] bin/unix2dos=toybox
+[type=hlink] bin/unlink=toybox
+[type=hlink] bin/uudecode=toybox
+[type=hlink] bin/uuencode=toybox
+[type=hlink] bin/uuidgen=toybox
+[type=hlink] bin/wc=toybox
+[type=hlink] bin/which=toybox
+[type=hlink] bin/whoami=toybox
+[type=hlink] bin/xargs=toybox
+[type=hlink] bin/xxd=toybox
+[type=hlink] bin/yes=toybox
+[type=hlink] bin/zcat=toybox
+
+#############################################
+### suid Utilities
+#############################################
+[perms=ugo=rx,u+s] bin/login=bin/login
+[perms=ugo=rx,u+s] bin/su=bin/su
+[perms=ugo=rx,u+s] bin/passwd=usr/bin/passwd
+[perms=ugo=rx,u+s] bin/ping=sbin/ping
+[perms=ugo=rx,u+s] bin/traceroute=usr/sbin/traceroute
+[perms=ugo=rx,u+s] bin/traceroute6=usr/sbin/traceroute6
+
+#############################################
+### Services
+#############################################
+bin/fs-nfs3=usr/sbin/fs-nfs3
+bin/dumper=usr/sbin/dumper
+bin/qconn=usr/sbin/qconn
+bin/mqueue=sbin/mqueue
+bin/random=usr/sbin/random
+bin/ntpd=usr/sbin/ntpd
+bin/devb-loopback=sbin/devb-loopback
+bin/devb-umass=sbin/devb-umass
+bin/devc-pty=sbin/devc-pty
+bin/pipe=sbin/pipe
+
+#############################################
+### io-sock
+#############################################
+bin/io-sock=sbin/io-sock
+lib/dll/mods-pci.so=lib/dll/mods-pci.so
+lib/dll/mods-phy.so=lib/dll/mods-phy.so
+lib/dll/mods-usb.so=lib/dll/mods-usb.so
+lib/libfdt.so.1=usr/lib/libfdt.so.1
+lib/libusbdci.so.2=lib/libusbdci.so.2
+
+bin/dhcpcd=sbin/dhcpcd
+[type=dir dperms=555] etc/dhcpcd
+[perms=444] etc/dhcpcd/dhcpcd.conf=etc/dhcpcd.conf
+[perms=555] etc/dhcpcd/dhcpcd-run-hooks=output/build/dhcpcd-run-hooks
+[type=dir dperms=555] etc/dhcpcd/dhcpcd-hooks
+[perms=555] etc/dhcpcd/dhcpcd-hooks/20-resolv.conf=output/build/20-resolv.conf
+[perms=555] etc/dhcpcd/dhcpcd.exit-hook = {
+#!/bin/sh
+
+if [ "\$reason" != BOUND ]; then
+    exit
+fi
+/system/etc/startup/pinger.sh
+}
+
+
+#############################################
+### ssh
+#############################################
+bin/sshd=usr/sbin/sshd
+bin/ssh-keygen=usr/bin/ssh-keygen
+bin/sshd-session=usr/libexec/sshd-session
+[dperms=555 type=dir] etc/ssh
+[perms=444] etc/ssh/sshd_config={
+Protocol 2
+HostKey /data/var/ssh/ssh_host_rsa_key
+HostKey /data/var/ssh/ssh_host_ed25519_key
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256
+AuthorizedKeysFile	.ssh/authorized_keys
+UsePAM yes
+# Disallow sshd's password checking though passwords might still be allowed
+# via pam.
+PasswordAuthentication no
+PermitUserEnvironment yes
+# Allowing root login via a password is generally undesirable. If you use the
+# --ssh-ident option this will be disabled and root will be able to log in
+# by means of an ssh identity file.
+PermitRootLogin yes
+PidFile none
+Subsystem sftp /system/bin/sftp-server
+SshdSessionPath /system/bin/sshd-session
+}
+bin/scp=usr/bin/scp
+bin/sftp-server=usr/libexec/sftp-server
+bin/ssh=usr/bin/ssh
+
+#############################################
+## PAM
+#############################################
+[uid=0 gid=0 dperms=755 type=dir] /lib/dll/pam
+[uid=0 gid=0 dperms=755 type=dir] /etc/pam
+
+lib/libpam.so.2=usr/lib/libpam.so.2
+
+lib/dll/pam/pam_deny.so=usr/lib/pam_deny.so
+lib/dll/pam/pam_echo.so=usr/lib/pam_echo.so
+lib/dll/pam/pam_exec.so=usr/lib/pam_exec.so
+lib/dll/pam/pam_group.so=usr/lib/pam_group.so
+lib/dll/pam/pam_permit.so=usr/lib/pam_permit.so
+lib/dll/pam/pam_qnx.so=usr/lib/pam_qnx.so
+lib/dll/pam/pam_rootok.so=usr/lib/pam_rootok.so
+lib/dll/pam/pam_self.so=usr/lib/pam_self.so
+
+[perms=444] etc/pam/login = {
+auth requisite pam_qnx.so
+account requisite pam_qnx.so
+session requisite pam_qnx.so
+
+password requisite pam_qnx.so
+}
+[perms=444] etc/pam/sshd = {
+auth requisite pam_qnx.so
+account requisite pam_qnx.so
+session requisite pam_qnx.so
+
+password requisite pam_qnx.so
+}
+[perms=444] etc/pam/passwd = {
+auth requisite pam_qnx.so
+account requisite pam_qnx.so
+session requisite pam_qnx.so
+password requisite pam_qnx.so
+}
+[perms=444] etc/pam/su = {
+auth sufficient pam_rootok.so no_warn
+auth requisite pam_qnx.so
+account requisite pam_qnx.so
+session requisite pam_qnx.so
+
+password requisite pam_qnx.so
+}
+
+#############################################
+### Customization
+#############################################
+
+lib/libssl.so.3=usr/lib/libssl.so.3
+lib/libcurl.so.12=usr/lib/libcurl.so.12
+lib/libcares.so.8=usr/lib/libcares.so.8
+/bin/setkey=sbin/setkey
+lib/liblzma.so.5=usr/lib/liblzma.so.5
+[perms=555] bin/cleanup_tmp=C://Users/yoy91/qnx800/host/win64/x86_64/../../common/mkqnximage/inputs/cleanup_tmp
+# local/snippets/system_files.custom using absolute host paths
+/usr/bin/engine_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/engine_proc
+/usr/bin/reactor_proc = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/reactor_proc
+/usr/bin/ui_raylib = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/ui_raylib
+/usr/lib/libSDL2-2.0.so.0 = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/external/lib/libSDL2.so
+/usr/lib/libSDL2.so = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/external/lib/libSDL2.so
+/usr/bin/bridge_ui = C:/Users/yoy91/Documents/Projects/RTOS/Hackathon/bin/bridge_ui
+
+
+######################################################
+### Common Graphics Files
+######################################################
+/etc/system/config/img.conf=etc/system/config/img.conf
+
+######################################################
+### Fonts
+######################################################
+[perms=0444] fonts=usr/share/fonts
+[perms=0444] etc/fontconfig/fonts.conf=C://Users/yoy91/qnx800/host/win64/x86_64/../../common/mkqnximage/inputs/fonts.conf
+bin/fc-cache=bin/fc-cache
+
+######################################################
+### Graphics - Screen
+######################################################
+/bin/screen=sbin/screen
+/bin/screencmd=bin/screencmd
+/bin/screeninfo=bin/screeninfo
+/bin/hidview=sbin/hidview
+
+/bin/gles2-gears=usr/bin/gles2-gears
+/bin/sw-vsync=usr/bin/sw-vsync
+
+########################################
+## libraries
+########################################
+/lib/libgestures.so.1=lib/libgestures.so.1
+/lib/libscrmem.so.1=lib/libscrmem.so.1
+/lib/libmemobj.so.1=lib/libmemobj.so.1
+/lib/libinputevents.so.1=lib/libinputevents.so.1
+/lib/libkalman.so.1=lib/libkalman.so.1
+/lib/libimg.so.1=lib/libimg.so.1
+/lib/libdrm.so.1=usr/lib/libdrm.so.1
+
+########################################
+## DLLs
+########################################
+/lib/dll/screen-debug.so=lib/dll/screen-debug.so
+/lib/dll/screen-gles2blt.so=lib/dll/screen-gles2blt.so
+/lib/dll/screen-sw.so=lib/dll/screen-sw.so
+/lib/dll/screen-stdbuf.so=lib/dll/screen-stdbuf.so
+
+#########################################
+## more libraries
+#########################################
+/lib/libGLESv2.so.1=usr/lib/libGLESv2.so.1
+/lib/libEGL.so.1=usr/lib/libEGL.so.1
+/lib/libscreen.so.1=usr/lib/libscreen.so.1
+/lib/libswblit.so.1=usr/lib/libswblit.so.1
+[type=link] /lib/libswblit.so=libswblit.so.1
+/lib/libWFD.so.1=usr/lib/libWFD.so.1
+/lib/__LIBFREETYPE__=usr/lib/__LIBFREETYPE__
+/lib/libfontconfig.so.1=usr/lib/libfontconfig.so.1
+/lib/libpng16.so.16=usr/lib/libpng16.so.16
+
+#############################################
+### Image Loading
+#############################################
+/lib/dll/img_codec_bmp.so=lib/dll/img_codec_bmp.so
+/lib/dll/img_codec_gif.so=lib/dll/img_codec_gif.so
+/lib/dll/img_codec_jpg.so=lib/dll/img_codec_jpg.so
+/lib/dll/img_codec_png.so=lib/dll/img_codec_png.so
+/lib/dll/img_codec_sgi.so=lib/dll/img_codec_sgi.so
+/lib/dll/img_codec_tga.so=lib/dll/img_codec_tga.so
+/lib/dll/img_codec_tif.so=lib/dll/img_codec_tif.so
+
+
+#############################################
+### Input
+#############################################
+/lib/libhiddi.so.1=lib/libhiddi.so.1
+[type=link] /lib/libhiddi.so=libhiddi.so.1
+/lib/dll/devh-ps2ser.so=lib/dll/devh-ps2ser.so
+/lib/dll/devh-ps2ser-vm.so=lib/dll/devh-ps2ser-vm.so
+/lib/libvmmouse.so.1=lib/libvmmouse.so.1
+/bin/io-hid=sbin/io-hid
+/graphics/keyboard/en_US_101.kbd=usr/share/keyboard/en_US_101.kbd
+
+/bin/drm-vmwgfx=sbin/drm-vmwgfx
+/lib/dll/screen-vmwgfxdrm.so=lib/dll/screen-vmwgfxdrm.so
+
+ ####################################################################################
+ ###  vmware gpu
+ ####################################################################################
+/graphics/driver/gpu_drm-vmwgfx.so=usr/lib/graphics/vmwgfx-drm/gpu_drm-vmwgfx.so
+/graphics/driver/libEGL-mesa.so=usr/lib/graphics/vmwgfx-drm/libEGL-mesa.so
+/graphics/driver/libGLESv2-mesa.so=usr/lib/graphics/vmwgfx-drm/libGLESv2-mesa.so
+/graphics/driver/libWFDvmwgfx-drm.so=usr/lib/graphics/vmwgfx-drm/libWFDvmwgfx-drm.so
+/graphics/driver/libglapi-mesa.so=usr/lib/graphics/vmwgfx-drm/libglapi-mesa.so
+/graphics/driver/libwfdcfg-vmwgfx-generic.so=usr/lib/graphics/vmwgfx-drm/libwfdcfg-vmwgfx-generic.so
+/graphics/driver/vmwgfx_dri.so=usr/lib/graphics/vmwgfx-drm/vmwgfx_dri.so
+/graphics/driver/graphics.conf={
+begin khronos
+
+  begin egl display 1
+    egl-dlls = libglapi-mesa.so libEGL-mesa.so
+    glesv2-dlls = libglapi-mesa.so libGLESv2-mesa.so
+    gpu-dlls = gpu_drm-vmwgfx.so
+  end egl display
+
+  begin wfd device 1
+    wfd-dlls = libwfdcfg-vmwgfx-generic.so libWFDvmwgfx-drm.so
+
+    # Run "drm-probe-displays" to list the available displays and pipelines,
+    # and "use $GRAPHICS_ROOT/libWFDvmwgfx-drm.so" for more information on
+    # these driver-specific settings.
+
+    # Pipeline IDs 1 to 9 are used for DRM CRTCs.  One should be assigned
+    # to each display that will be used.
+    pipeline1-display = 1
+
+    # VMWare Workstations/Players prior 15.5 support full DX11 renderer, since 15.5 version
+    # due to some reason it automatically switches to the basic renderer with very limited
+    # support of formats. Set to 1 if you use 15.5 VMWare Workstation/Player and you have
+    # issues with 3D graphics support.
+    use_basic_dx_renderer = 1
+  end wfd device
+
+end khronos
+
+begin winmgr
+
+  begin globals
+    default-display = 1
+    # Adjust the stack size of Screen's resmgr threads.  The default size
+    # is insufficient for blitters/compositors using Mesa (e.g., gles2blt).
+    stack-size = 65536  # in units of bytes
+    blit-config = vmwgfxdrm
+    alloc-config = vmwgfxdrm
+    requests-logsize = 65536
+    blits-logsize = 4096
+    blit-defer = false
+    keymap = /system/graphics/keyboard/en_US_101
+  end globals
+
+  begin display 1
+    video-mode = 1280 x 768 @ 60
+    # Adjust the stack size of Screen's composition thread; required when the
+    # display's framebuffer uses Mesa (e.g., "usage = gles2"), as noted above.
+    stack-size = 65536  # in units of bytes
+    defer-framebuffer-creation = false
+    # Ensure that bypass mode is disabled to force composition of final image
+    # to properly display results of CPU rendering applications
+    allow-bypass = false
+  end display
+
+  begin class framebuffer-1
+    display = 1
+    pipeline = 1
+    format = rgba8888
+    usage = vmwgfxdrm
+  end class
+
+end winmgr
+}
+
+bin/secpol=bin/secpol
+bin/io-usb-otg=sbin/io-usb-otg
+lib/dll/devu-hcd-xhci.so=lib/dll/devu-hcd-xhci.so
+lib/dll/devu-hcd-ehci.so=lib/dll/devu-hcd-ehci.so
+lib/dll/devu-hcd-uhci.so=lib/dll/devu-hcd-uhci.so
+lib/libusbdi.so.2=lib/libusbdi.so.2
+lib/dll/fs-dos.so=lib/dll/fs-dos.so
+[perms=555] etc/startup/pinger.sh={
+#!/bin/sh
+# Script to ping all interfaces of our host as a means of getting our own address into the arp cache
+if ! ifconfig | grep 'inet .*broadcast' | grep -v 0.0.0.0 >/dev/null; then
+	exit
+fi
+if [ "$1" = delay ]; then
+	# It can take several seconds after start-up before io-sock is capable of pinging.
+	sleep 6
+fi
+# Also use an address by replacing the last octet of our address with 1.
+guessed_addr=`ifconfig | grep broad | sed -r 's/.*broadcast ([0-9]+\\.[0-9]+\\.[0-9]+)\\..*/\\1.1/'`
+addr_list=192.168.73.1:192.168.136.1:192.168.0.11:$guessed_addr
+IFS=:
+for ip in $addr_list; do
+	ping -c 1 -t 1 $ip >/dev/null 2>&1 &
+done
+}
+lib/dll/devs-vmx.so=lib/dll/devs-vmx.so

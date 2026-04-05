@@ -1,0 +1,4 @@
+# Add project binaries to the system partition
+/usr/bin/engine_proc = bin/engine_proc
+/usr/bin/reactor_proc = bin/reactor_proc
+/usr/bin/bridge_ui = bin/bridge_ui

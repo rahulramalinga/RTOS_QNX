@@ -1,0 +1,26 @@
+    # As various programs expect some binaries in fixed location, create procmgr symlinks to them.
+    # We can't specify these paths for the files themselves since if we build a non-union system,
+    # the actual paths would be things like /ifs/bin/sh
+    procmgr_symlink __IFS_PATH__/ksh /bin/ksh
+    procmgr_symlink __IFS_PATH__/ksh /bin/sh
+    procmgr_symlink /system/bin/cp /bin/cp
+    procmgr_symlink /system/bin/rm /bin/rm
+    procmgr_symlink /data/var/tmp /tmp
+    procmgr_symlink /system/bin/ssh /usr/bin/ssh
+    procmgr_symlink __IFS_PATH__/ldqnx-64.so.2 /usr/lib/ldqnx-64.so.2
+
+    # **FIXME**
+    # Processes should usually use _CS_CONFIG_PATH to locate configuration files.  But for now
+    # create symlinks for some locations that can't move.
+    procmgr_symlink /system/etc/terminfo /usr/share/terminfo
+    procmgr_symlink /data/var/etc /etc
+    procmgr_symlink /data/var /var
+    procmgr_symlink /system/etc/profile /etc/profile
+
+    TERM=qansi
+    HOME=/data/home/root
+#if defined(__HAS_PCI__)
+    PCI_BKWD_COMPAT_MODULE=__IFS_PATH__/pci_bkwd_compat.so
+    PCI_SLOG_MODULE=pci_slog2.so
+    PCI_CAP_MODULE_DIR=__IFS_PATH__
+#endif

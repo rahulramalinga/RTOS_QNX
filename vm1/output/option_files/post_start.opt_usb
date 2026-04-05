@@ -1,0 +1,1 @@
+STARTU_P(io_usb_t,__IO_USB_ID__) io-usb-otg __IO_USB_OTG_OPTIONS__

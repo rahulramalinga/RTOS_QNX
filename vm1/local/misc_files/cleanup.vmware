@@ -1,0 +1,23 @@
+#!/bin/bash
+
+VMRUN=vmrun
+if ! which $VMRUN >/dev/null 2>&1; then
+    if [ "${HOST_UNAME}" = WINNT ]; then
+        VMRUN="/cygdrive/c/Program Files (x86)/VMWare/VMWare Workstation/vmrun.exe"
+        if [ ! -e "$VMRUN" ]; then
+            VMRUN="/cygdrive/c/Program Files/VMWare/VMWare Workstation/vmrun.exe"
+            if [ ! -e "$VMRUN" ]; then
+				exit 1
+            fi
+        fi
+    elif [ "${HOST_UNAME}" = Darwin ]; then
+        VMRUN="`cat /etc/paths.d/com.vmware.fusion.public`/vmrun"
+        if [ ! -e "$VMRUN" ]; then
+            exit 1
+        fi
+    else
+        exit 1
+    fi
+fi
+
+"$VMRUN" deleteVM local/vmware_files/vmware.vmx

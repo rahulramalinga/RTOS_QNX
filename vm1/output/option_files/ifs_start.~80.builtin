@@ -1,0 +1,12 @@
+    #~80.builtin
+#if defined(OPT_SLM_yes)
+    waitfor /system
+#endif
+
+    display_msg "Startup complete"
+    uname -a
+
+    reopen __DEVC_PATH__
+#if defined(__MUON_ALT_CONSOLE__)
+    [+session] ksh
+#endif
